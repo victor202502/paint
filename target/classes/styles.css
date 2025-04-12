@@ -1,0 +1,138 @@
+/* styles.css - Estilo Moderno Oscuro */
+
+.root {
+    -fx-font-family: "Segoe UI", Cantarell, "Helvetica Neue", sans-serif;
+    -fx-background-color: #2D2D2D; /* Fondo principal oscuro */
+    -fx-accent: #009688; /* Color de acento (verde azulado) */
+}
+
+.controls-bar {
+    -fx-background-color: #3c3f41; /* Barra de controles ligeramente más clara */
+    -fx-padding: 8px 12px;
+    -fx-spacing: 10px; /* Espacio entre elementos/grupos */
+    -fx-alignment: center-left;
+    /* Sombra inferior sutil */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 3);
+}
+
+.label {
+    -fx-text-fill: #b0bec5; /* Texto gris claro */
+    -fx-font-size: 12px;
+    -fx-padding: 0 5px 0 0; /* Espacio a la derecha de la etiqueta */
+}
+
+.info-label {
+    -fx-text-fill: #eceff1; /* Texto más brillante para valores */
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+
+/* --- Botones Generales y de Herramientas --- */
+.button,
+.toggle-button {
+    -fx-background-color: transparent; /* Sin fondo por defecto */
+    -fx-text-fill: #b0bec5; /* Texto gris claro */
+    -fx-border-color: #546e7a; /* Borde sutil */
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 5px 10px;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+    -fx-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.button:hover,
+.toggle-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* Resaltado sutil al pasar el ratón */
+    -fx-border-color: #78909c;
+}
+
+.button:pressed,
+.toggle-button:pressed {
+    -fx-background-color: rgba(0, 0, 0, 0.2); /* Más oscuro al presionar */
+}
+
+/* Estilo específico para ToggleButton SELECCIONADO */
+.toggle-button:selected {
+    -fx-background-color: -fx-accent; /* Usa el color de acento */
+    -fx-text-fill: white; /* Texto blanco */
+    -fx-border-color: derive(-fx-accent, -20%); /* Borde ligeramente más oscuro que el acento */
+    -fx-font-weight: bold;
+}
+
+/* Botón Limpiar con un toque diferente (opcional) */
+.clear-button {
+    -fx-border-color: #c62828; /* Borde rojo */
+    -fx-text-fill: #ef9a9a; /* Texto rojo claro */
+}
+
+.clear-button:hover {
+     -fx-background-color: rgba(244, 67, 54, 0.2); /* Fondo rojo transparente */
+     -fx-border-color: #e53935;
+     -fx-text-fill: #ffcdd2;
+}
+
+/* --- Slider --- */
+.slider .track {
+    -fx-background-color: #546e7a;
+    -fx-background-radius: 3px;
+    -fx-pref-height: 6px; /* Pista más delgada */
+}
+
+.slider .thumb {
+    -fx-background-color: -fx-accent; /* Color de acento */
+    -fx-background-radius: 50%; /* Círculo */
+    -fx-pref-height: 14px;
+    -fx-pref-width: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 1); /* Sombra */
+}
+
+.slider:focused .thumb {
+     -fx-background-color: derive(-fx-accent, -10%); /* Ligeramente más oscuro con foco */
+     -fx-scale-x: 1.1; /* Un poco más grande con foco */
+     -fx-scale-y: 1.1;
+}
+
+
+/* --- Color Picker --- */
+.color-picker {
+    -fx-background-radius: 4px;
+     -fx-border-radius: 4px;
+}
+.color-picker .color-picker-label {
+     -fx-background-color: #546e7a; /* Fondo del cuadrado de color */
+     -fx-border-color: #78909c;
+     -fx-padding: 6px;
+      -fx-background-radius: 3px 0 0 3px; /* Redondear solo lado izquierdo */
+       -fx-border-radius: 3px 0 0 3px;
+}
+.color-picker .arrow-button {
+    -fx-background-color: #546e7a;
+    -fx-background-radius: 0 3px 3px 0;
+     -fx-border-radius: 0 3px 3px 0;
+    -fx-padding: 6px 8px;
+    -fx-border-color: #78909c;
+     -fx-border-width: 1px 1px 1px 0; /* Borde izquierdo compartido con label */
+}
+.color-picker .arrow {
+    -fx-background-color: #b0bec5; /* Color de la flecha */
+}
+.color-picker:hover .color-picker-label,
+.color-picker:hover .arrow-button {
+     -fx-background-color: #607d8b;
+      -fx-border-color: #90a4ae;
+}
+
+
+/* --- Contenedor del Canvas --- */
+
+
+
+/* --- Separador Vertical --- */
+.separator:vertical .line {
+    -fx-border-color: #546e7a; /* Color de la línea */
+    -fx-border-width: 1px 0 0 0; /* Ajusta según la orientación esperada por HBox */
+    -fx-border-insets: 0 5px; /* Separación visual */
+}
