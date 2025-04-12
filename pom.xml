@@ -30,6 +30,11 @@
         <version>5.10.2</version>
         <scope>test</scope>
     </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-swing</artifactId>
+        <version>21</version> <!-- Usa la misma versión que tus otras dependencias JavaFX -->
+    </dependency>
 </dependencies>
 
     <build>
