@@ -188,22 +188,26 @@ public class App extends Application {
 
         // Farbwähler
         colorPicker = new ColorPicker(currentColor); colorPicker.getStyleClass().add("control-element"); colorPicker.setTooltip(new Tooltip("Farbe wählen"));
-        colorPicker.setOnAction(_ -> {currentColor = colorPicker.getValue(); if(gc!=null)gc.setStroke(currentColor); if(previewGc!=null)previewGc.setStroke(currentColor);});
+        // **** KORREKTUR HIER ****
+        colorPicker.setOnAction(e -> {currentColor = colorPicker.getValue(); if(gc!=null)gc.setStroke(currentColor); if(previewGc!=null)previewGc.setStroke(currentColor);});
 
         // Linienbreiten-Regler
         lineWidthSlider = new Slider(1,30,currentLineWidth); lineWidthSlider.setShowTickMarks(true); lineWidthSlider.setShowTickLabels(true); lineWidthSlider.setMajorTickUnit(10); lineWidthSlider.setMinorTickCount(4); lineWidthSlider.setBlockIncrement(1); lineWidthSlider.getStyleClass().add("control-element"); lineWidthSlider.setPrefWidth(150); lineWidthSlider.setTooltip(new Tooltip("Linienbreite anpassen"));
 
         // Label für Linienbreite
         widthValueLabel = new Label(String.format("%.1f",currentLineWidth)); widthValueLabel.getStyleClass().add("info-label"); widthValueLabel.setMinWidth(35);
-        lineWidthSlider.valueProperty().addListener((_,_,nV) -> {currentLineWidth=nV.doubleValue(); widthValueLabel.setText(String.format("%.1f",currentLineWidth)); if(gc!=null)gc.setLineWidth(currentLineWidth); if(previewGc!=null)previewGc.setLineWidth(currentLineWidth);});
+        // **** KORREKTUR HIER ****
+        lineWidthSlider.valueProperty().addListener((obs, ov, nV) -> {currentLineWidth=nV.doubleValue(); widthValueLabel.setText(String.format("%.1f",currentLineWidth)); if(gc!=null)gc.setLineWidth(currentLineWidth); if(previewGc!=null)previewGc.setLineWidth(currentLineWidth);});
 
         // Weitere Buttons
-        clearButton = new Button("Leeren"); clearButton.getStyleClass().addAll("control-element","clear-button"); clearButton.setTooltip(new Tooltip("Zeichnung löschen")); clearButton.setOnAction(_->clearCanvas());
+        // **** KORREKTUR HIER ****
+        clearButton = new Button("Leeren"); clearButton.getStyleClass().addAll("control-element","clear-button"); clearButton.setTooltip(new Tooltip("Zeichnung löschen")); clearButton.setOnAction(e -> clearCanvas());
         saveButton = new Button("Speichern"); saveButton.getStyleClass().add("control-element"); saveButton.setTooltip(new Tooltip("Als PNG speichern")); saveButton.setOnAction(e->onSave());
         loadButton = new Button("Laden"); loadButton.getStyleClass().add("control-element"); loadButton.setTooltip(new Tooltip("PNG laden")); loadButton.setOnAction(e->onLoad());
 
         // Listener für Werkzeugwechsel
-        toolGroup.selectedToggleProperty().addListener((_,_,nT) -> {
+        // **** KORREKTUR HIER ****
+        toolGroup.selectedToggleProperty().addListener((obs, ov, nT) -> {
             if(previewGc!=null) previewGc.clearRect(0,0,previewCanvas.getWidth(),previewCanvas.getHeight()); // Vorschau löschen
             if(nT!=null) currentTool=(Tool)nT.getUserData(); // Neues Werkzeug setzen
             else{currentTool=Tool.PEN; if(penButton!=null) penButton.setSelected(true);} // Fallback

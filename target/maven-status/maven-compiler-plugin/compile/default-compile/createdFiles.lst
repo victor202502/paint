@@ -1,2 +1,5 @@
 com\todolist\Launcher.class
+com\todolist\App$1.class
+com\todolist\App$Tool.class
+com\todolist\App$Spacer.class
 com\todolist\App.class

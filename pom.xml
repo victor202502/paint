@@ -11,17 +11,19 @@
     <name>todolist</name>
 
     <properties>
-        <maven.compiler.source>23</maven.compiler.source>
-        <maven.compiler.target>23</maven.compiler.target>
+        <!-- Cambiado de 23 a 18 -->
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
+        <!-- Fin del cambio -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <exec.mainClass>com.todolist.Launcher</exec.mainClass>
+        <exec.mainClass>com.todolist.Launcher</exec.mainClass> <!-- Asegúrate de que esta es tu clase principal real -->
     </properties>
 
    <dependencies>
     <dependency>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-controls</artifactId>
-        <version>21</version>
+        <version>21</version> <!-- JavaFX 21 es compatible con Java 18 -->
     </dependency>
 
     <dependency>
@@ -80,7 +82,6 @@
                 </execution>
             </executions>
         </plugin>
-
 
         </plugins>
     </build>
